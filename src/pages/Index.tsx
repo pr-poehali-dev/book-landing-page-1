@@ -120,6 +120,43 @@ const Index = () => {
             justify-content: center;
             overflow: hidden;
           }
+          .book-pages-top {
+            position: absolute;
+            top: 0; left: 28px; right: 0;
+            height: 6px;
+            transform-origin: bottom center;
+            transform: rotateX(90deg);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            background: linear-gradient(180deg, #e8e0d4 0%, #f5f0ea 40%, #ede6dc 100%);
+            box-shadow: inset 0 -1px 3px rgba(0,0,0,0.15);
+          }
+          .book-pages-bottom {
+            position: absolute;
+            bottom: 0; left: 28px; right: 0;
+            height: 6px;
+            transform-origin: top center;
+            transform: rotateX(-90deg);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            background: linear-gradient(0deg, #e0d8cc 0%, #f0ebe3 50%, #e8e0d4 100%);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+          }
+          .book-pages-right {
+            position: absolute;
+            top: 0; right: 0;
+            width: 6px; height: 100%;
+            transform-origin: left center;
+            transform: rotateY(90deg);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            background: repeating-linear-gradient(
+              180deg,
+              #f5f0ea 0px, #f5f0ea 1px,
+              #e8e2d8 1px, #e8e2d8 2px
+            );
+            box-shadow: inset -1px 0 4px rgba(0,0,0,0.12);
+          }
         `}</style>
 
         <div className="opacity-0 animate-scale-in" style={{ animationFillMode: "forwards" }}>
@@ -256,6 +293,13 @@ const Index = () => {
                 </div>
               </div>
 
+              {/* Обрез сверху — страницы */}
+              <div className="book-pages-top" />
+              {/* Обрез снизу — страницы */}
+              <div className="book-pages-bottom" />
+              {/* Обрез справа — страницы */}
+              <div className="book-pages-right" />
+
               {/* Корешок */}
               <div
                 className="book-spine"
@@ -284,18 +328,30 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Цитата */}
+      {/* Текст от автора */}
       <section
         className="relative px-6 py-10 text-center opacity-0 animate-fade-up-2"
         style={{ animationFillMode: "forwards" }}
       >
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-xl mx-auto flex flex-col gap-4">
           <p
-            className="font-display text-xl md:text-2xl font-light italic leading-relaxed"
-            style={{ color: "rgba(190,192,210,0.65)" }}
+            className="font-display text-lg md:text-xl font-light leading-relaxed"
+            style={{ color: "rgba(220,222,235,0.8)" }}
           >
-            «Что если всё, что ты видишь — лишь отражение
-            того, во что ты решил поверить?»
+            Я создал этот сайт, потому что пишу книгу.
+          </p>
+          <p
+            className="font-display text-base md:text-lg font-light italic leading-relaxed"
+            style={{ color: "rgba(185,188,210,0.6)" }}
+          >
+            У меня нет громких рекламных кампаний. Только я, текст и желание, чтобы меня услышали.
+            Книга рождается прямо сейчас. Вы видите всё, как есть.
+          </p>
+          <p
+            className="font-display text-lg md:text-xl font-light leading-relaxed"
+            style={{ color: "rgba(210,208,230,0.7)" }}
+          >
+            Мне удалось вас заинтриговать?
           </p>
         </div>
       </section>
