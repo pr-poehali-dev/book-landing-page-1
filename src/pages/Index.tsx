@@ -123,31 +123,37 @@ const Index = () => {
           .book-pages-top {
             position: absolute;
             top: 0; left: 28px; right: 0;
-            height: 6px;
-            transform-origin: bottom center;
-            transform: rotateX(90deg);
+            height: 10px;
+            transform-origin: top center;
+            transform: rotateX(-90deg) translateY(-5px);
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-            background: linear-gradient(180deg, #e8e0d4 0%, #f5f0ea 40%, #ede6dc 100%);
-            box-shadow: inset 0 -1px 3px rgba(0,0,0,0.15);
+            background: repeating-linear-gradient(
+              90deg,
+              #f0ebe3 0px, #f0ebe3 1px,
+              #e4ddd4 1px, #e4ddd4 2px
+            );
           }
           .book-pages-bottom {
             position: absolute;
             bottom: 0; left: 28px; right: 0;
-            height: 6px;
-            transform-origin: top center;
-            transform: rotateX(-90deg);
+            height: 10px;
+            transform-origin: bottom center;
+            transform: rotateX(90deg) translateY(5px);
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-            background: linear-gradient(0deg, #e0d8cc 0%, #f0ebe3 50%, #e8e0d4 100%);
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+            background: repeating-linear-gradient(
+              90deg,
+              #ede7df 0px, #ede7df 1px,
+              #e0d9d0 1px, #e0d9d0 2px
+            );
           }
           .book-pages-right {
             position: absolute;
             top: 0; right: 0;
-            width: 6px; height: 100%;
-            transform-origin: left center;
-            transform: rotateY(90deg);
+            width: 10px; height: 100%;
+            transform-origin: right center;
+            transform: rotateY(90deg) translateX(5px);
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             background: repeating-linear-gradient(
@@ -155,7 +161,6 @@ const Index = () => {
               #f5f0ea 0px, #f5f0ea 1px,
               #e8e2d8 1px, #e8e2d8 2px
             );
-            box-shadow: inset -1px 0 4px rgba(0,0,0,0.12);
           }
         `}</style>
 
@@ -294,9 +299,9 @@ const Index = () => {
               </div>
 
               {/* Обрез сверху — страницы */}
-              <div className="book-pages-top" />
+              <div className="book-pages-top" style={{ left: "28px", right: "0" }} />
               {/* Обрез снизу — страницы */}
-              <div className="book-pages-bottom" />
+              <div className="book-pages-bottom" style={{ left: "28px", right: "0" }} />
               {/* Обрез справа — страницы */}
               <div className="book-pages-right" />
 
