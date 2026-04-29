@@ -102,6 +102,9 @@ const Index = () => {
             overflow: hidden;
             border-radius: 2px;
           }
+          .book-3d {
+            overflow: visible !important;
+          }
           .book-back {
             transform: rotateY(180deg);
           }
@@ -120,46 +123,49 @@ const Index = () => {
             justify-content: center;
             overflow: hidden;
           }
-          .book-pages-top {
+          .book-edge-top {
             position: absolute;
-            top: 0; left: 28px; right: 0;
-            height: 10px;
-            transform-origin: top center;
-            transform: rotateX(-90deg) translateY(-5px);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            background: repeating-linear-gradient(
-              90deg,
-              #f0ebe3 0px, #f0ebe3 1px,
-              #e4ddd4 1px, #e4ddd4 2px
-            );
-          }
-          .book-pages-bottom {
-            position: absolute;
-            bottom: 0; left: 28px; right: 0;
-            height: 10px;
+            left: 28px; right: 0;
+            height: 12px;
+            top: -12px;
+            transform: rotateX(90deg);
             transform-origin: bottom center;
-            transform: rotateX(90deg) translateY(5px);
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             background: repeating-linear-gradient(
               90deg,
-              #ede7df 0px, #ede7df 1px,
-              #e0d9d0 1px, #e0d9d0 2px
+              #f5f0ea 0px, #f5f0ea 1.5px,
+              #ddd6cc 1.5px, #ddd6cc 3px
             );
           }
-          .book-pages-right {
+          .book-edge-bottom {
             position: absolute;
-            top: 0; right: 0;
-            width: 10px; height: 100%;
-            transform-origin: right center;
-            transform: rotateY(90deg) translateX(5px);
+            left: 28px; right: 0;
+            height: 12px;
+            bottom: -12px;
+            transform: rotateX(-90deg);
+            transform-origin: top center;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            background: repeating-linear-gradient(
+              90deg,
+              #ede8e0 0px, #ede8e0 1.5px,
+              #d8d1c8 1.5px, #d8d1c8 3px
+            );
+          }
+          .book-edge-right {
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 12px;
+            right: -12px;
+            transform: rotateY(-90deg);
+            transform-origin: left center;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             background: repeating-linear-gradient(
               180deg,
-              #f5f0ea 0px, #f5f0ea 1px,
-              #e8e2d8 1px, #e8e2d8 2px
+              #f5f0ea 0px, #f5f0ea 1.5px,
+              #ddd6cc 1.5px, #ddd6cc 3px
             );
           }
         `}</style>
@@ -298,12 +304,12 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Обрез сверху — страницы */}
-              <div className="book-pages-top" style={{ left: "28px", right: "0" }} />
-              {/* Обрез снизу — страницы */}
-              <div className="book-pages-bottom" style={{ left: "28px", right: "0" }} />
-              {/* Обрез справа — страницы */}
-              <div className="book-pages-right" />
+              {/* Обрез сверху */}
+              <div className="book-edge-top" />
+              {/* Обрез снизу */}
+              <div className="book-edge-bottom" />
+              {/* Обрез справа */}
+              <div className="book-edge-right" />
 
               {/* Корешок */}
               <div
