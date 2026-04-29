@@ -1,4 +1,4 @@
-const BOOK_COVER = "https://cdn.poehali.dev/projects/a429683c-9af0-409b-bee5-5c281ceb1d25/files/f01445d0-6517-44da-89f9-eb077a9f6336.jpg";
+const BOOK_COVER_FRONT = "https://cdn.poehali.dev/projects/a429683c-9af0-409b-bee5-5c281ceb1d25/bucket/e31806e8-1a1c-446e-97df-da316e4a4de3.jpg";
 
 const Index = () => {
   return (
@@ -77,51 +77,208 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Обложка книги */}
-      <section className="relative flex justify-center px-6 py-8">
+      {/* Обложка книги — 3D */}
+      <section className="relative flex justify-center px-6 py-12">
+        <style>{`
+          .book-scene {
+            perspective: 1200px;
+          }
+          .book-3d {
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(-25deg);
+            transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+          }
+          .book-scene:hover .book-3d {
+            transform: rotateY(160deg);
+          }
+          .book-face {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            overflow: hidden;
+            border-radius: 2px;
+          }
+          .book-back {
+            transform: rotateY(180deg);
+          }
+          .book-spine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            transform-origin: left center;
+            transform: rotateY(-90deg) translateX(-50%);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            background: linear-gradient(180deg, #1a0e2e 0%, #0d0818 50%, #1a0e2e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+          }
+        `}</style>
+
         <div className="opacity-0 animate-scale-in" style={{ animationFillMode: "forwards" }}>
-          <div className="relative group">
+          {/* Тень под книгой */}
+          <div
+            className="absolute -bottom-6 left-1/2 -translate-x-1/2 blur-3xl rounded-full pointer-events-none"
+            style={{
+              width: "70%",
+              height: "50px",
+              background: "radial-gradient(ellipse, rgba(40,20,100,0.6) 0%, transparent 70%)",
+            }}
+          />
+
+          <div className="book-scene" style={{ width: "clamp(260px, 52vw, 360px)" }}>
             <div
-              className="absolute -bottom-8 left-1/2 -translate-x-1/2 blur-3xl rounded-full"
+              className="book-3d"
               style={{
-                width: "80%",
-                height: "60px",
-                background: "radial-gradient(ellipse, rgba(40,20,100,0.5) 0%, rgba(20,10,60,0.2) 50%, transparent 70%)",
-              }}
-            />
-            <div
-              className="absolute -inset-6 blur-3xl opacity-20 group-hover:opacity-35 transition-opacity duration-700 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse, rgba(50,30,120,0.5) 0%, transparent 70%)" }}
-            />
-            <div
-              className="relative overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]"
-              style={{
-                width: "clamp(280px, 58vw, 400px)",
-                borderRadius: "2px",
-                boxShadow:
-                  "-12px 16px 60px rgba(0,0,0,0.97), 0 0 50px rgba(40,20,100,0.2), 2px 0 0 rgba(255,255,255,0.04) inset",
+                width: "clamp(260px, 52vw, 360px)",
+                height: "clamp(347px, 69vw, 480px)",
               }}
             >
-              <img
-                src={BOOK_COVER}
-                alt="Обложка книги «Иллюзия реальности»"
-                className="w-full block"
-                style={{ aspectRatio: "3/4", objectFit: "cover" }}
-              />
+              {/* Передняя обложка */}
               <div
-                className="absolute left-0 top-0 bottom-0 w-3"
-                style={{ background: "linear-gradient(90deg, rgba(0,0,0,0.7), transparent)" }}
-              />
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                className="book-face"
                 style={{
-                  background: "linear-gradient(135deg, rgba(60,30,120,0.1) 0%, transparent 40%, rgba(30,10,80,0.07) 100%)",
+                  boxShadow: "6px 0 20px rgba(0,0,0,0.8), -2px 0 8px rgba(0,0,0,0.4)",
                 }}
-              />
+              >
+                <img
+                  src={BOOK_COVER_FRONT}
+                  alt="Иллюзия реальности — передняя обложка"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+                {/* Корешок-тень на передней */}
+                <div
+                  style={{
+                    position: "absolute", left: 0, top: 0, bottom: 0, width: "18px",
+                    background: "linear-gradient(90deg, rgba(0,0,0,0.55), transparent)",
+                  }}
+                />
+              </div>
+
+              {/* Задняя обложка */}
               <div
-                className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: "linear-gradient(90deg, transparent, rgba(100,80,200,0.3), transparent)" }}
-              />
+                className="book-face book-back"
+                style={{
+                  background: "linear-gradient(160deg, #0d0a1a 0%, #10081f 40%, #080612 100%)",
+                  boxShadow: "-6px 0 20px rgba(0,0,0,0.8)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "2rem 1.5rem",
+                  gap: "1.2rem",
+                }}
+              >
+                {/* Декоративный верхний орнамент */}
+                <div style={{ textAlign: "center" }}>
+                  <div style={{
+                    width: "40px", height: "1px", margin: "0 auto 8px",
+                    background: "linear-gradient(90deg, transparent, rgba(100,80,200,0.6), transparent)",
+                  }} />
+                  <span style={{ color: "rgba(130,100,210,0.5)", fontSize: "10px", letterSpacing: "0.3em" }}>◈</span>
+                  <div style={{
+                    width: "40px", height: "1px", margin: "8px auto 0",
+                    background: "linear-gradient(90deg, transparent, rgba(100,80,200,0.6), transparent)",
+                  }} />
+                </div>
+
+                {/* Цитата */}
+                <p style={{
+                  fontFamily: '"Cormorant Garamond", Georgia, serif',
+                  fontSize: "clamp(0.75rem, 2vw, 0.9rem)",
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                  color: "rgba(200,195,230,0.7)",
+                  textAlign: "center",
+                  lineHeight: "1.8",
+                }}>
+                  «Что если всё, что ты видишь — лишь отражение того, во что ты решил поверить?»
+                </p>
+
+                {/* Разделитель */}
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", width: "80%" }}>
+                  <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, transparent, rgba(80,60,160,0.4))" }} />
+                  <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "rgba(100,80,180,0.4)" }} />
+                  <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, rgba(80,60,160,0.4), transparent)" }} />
+                </div>
+
+                {/* Аннотация */}
+                <p style={{
+                  fontFamily: '"IBM Plex Sans", sans-serif',
+                  fontSize: "clamp(0.62rem, 1.6vw, 0.75rem)",
+                  fontWeight: 300,
+                  color: "rgba(170,165,200,0.55)",
+                  textAlign: "center",
+                  lineHeight: "1.75",
+                }}>
+                  Алчный предприниматель узнаёт об изобретении, способном изменить мир.
+                  Не обернётся ли охотник жертвой в этой опасной игре?
+                </p>
+
+                {/* Жанры */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", justifyContent: "center" }}>
+                  {["Фантастика", "Детектив", "Триллер"].map(g => (
+                    <span key={g} style={{
+                      fontFamily: '"IBM Plex Sans", sans-serif',
+                      fontSize: "0.55rem",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "rgba(150,130,210,0.7)",
+                      border: "1px solid rgba(90,70,170,0.3)",
+                      borderRadius: "100px",
+                      padding: "3px 10px",
+                      background: "rgba(50,30,100,0.12)",
+                    }}>{g}</span>
+                  ))}
+                </div>
+
+                {/* Автор внизу */}
+                <div style={{ marginTop: "auto", textAlign: "center" }}>
+                  <div style={{
+                    width: "30px", height: "1px", margin: "0 auto 10px",
+                    background: "linear-gradient(90deg, transparent, rgba(80,60,160,0.4), transparent)",
+                  }} />
+                  <p style={{
+                    fontFamily: '"Cormorant Garamond", Georgia, serif',
+                    fontSize: "clamp(0.7rem, 1.8vw, 0.85rem)",
+                    letterSpacing: "0.25em",
+                    textTransform: "uppercase",
+                    color: "rgba(180,170,220,0.5)",
+                    fontWeight: 300,
+                  }}>Фаргат Закиров</p>
+                </div>
+              </div>
+
+              {/* Корешок */}
+              <div
+                className="book-spine"
+                style={{ width: "28px" }}
+              >
+                <div style={{
+                  transform: "rotate(180deg)",
+                  writingMode: "vertical-rl",
+                  fontFamily: '"Cormorant Garamond", Georgia, serif',
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.2em",
+                  color: "rgba(180,165,230,0.6)",
+                  textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                }}>
+                  Иллюзия реальности · Фаргат Закиров
+                </div>
+                {/* Блики корешка */}
+                <div style={{
+                  position: "absolute", top: 0, left: 0, right: 0, height: "100%",
+                  background: "linear-gradient(90deg, rgba(255,255,255,0.06) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.3) 100%)",
+                }} />
+              </div>
             </div>
           </div>
         </div>
