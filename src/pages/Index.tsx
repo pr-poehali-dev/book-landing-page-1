@@ -229,7 +229,9 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             {/* Синяя таблетка */}
             <a
-              href="#"
+              href="https://proza.ru/2025/11/30/1566"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative group flex items-center justify-center px-10 py-4 font-body text-sm font-light tracking-wider transition-all duration-500"
               style={{
                 background: "linear-gradient(180deg, #1a1acc 0%, #0000CD 50%, #00008a 100%)",
@@ -258,7 +260,9 @@ const Index = () => {
 
             {/* Красная таблетка */}
             <a
-              href="#"
+              href="https://vk.com/illusion_real"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative group flex items-center justify-center px-10 py-4 font-body text-sm font-light tracking-wider transition-all duration-500"
               style={{
                 background: "linear-gradient(180deg, #cc2020 0%, #B22222 50%, #7a1515 100%)",
