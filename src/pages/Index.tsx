@@ -5,8 +5,8 @@ const Index = () => {
     <div
       className="min-h-screen font-body overflow-x-hidden"
       style={{
-        background: "linear-gradient(160deg, #050508 0%, #080610 40%, #060408 100%)",
-        color: "#f0ece4",
+        background: "linear-gradient(160deg, #030806 0%, #050f08 40%, #040806 100%)",
+        color: "#d4f0e0",
       }}
     >
       {/* Мистическое фоновое свечение */}
@@ -14,7 +14,7 @@ const Index = () => {
         className="fixed inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(80,40,160,0.18) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 20% 80%, rgba(0,180,120,0.06) 0%, transparent 50%), radial-gradient(ellipse 40% 30% at 80% 80%, rgba(180,0,60,0.06) 0%, transparent 50%)",
+            "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0,180,80,0.12) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 20% 80%, rgba(0,200,100,0.05) 0%, transparent 50%), radial-gradient(ellipse 40% 30% at 80% 80%, rgba(0,160,80,0.05) 0%, transparent 50%)",
         }}
       />
       {/* Туман снизу */}
@@ -22,7 +22,7 @@ const Index = () => {
         className="fixed inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 100% 60% at 50% 100%, rgba(40,10,80,0.3) 0%, transparent 60%)",
+            "radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0,40,20,0.4) 0%, transparent 60%)",
         }}
       />
       {/* Тонкая сетка */}
@@ -30,7 +30,7 @@ const Index = () => {
         className="fixed inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(80,40,200,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(80,40,200,0.03) 1px, transparent 1px)",
+            "linear-gradient(rgba(0,200,80,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,200,80,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -40,38 +40,32 @@ const Index = () => {
         <div className="opacity-0 animate-fade-up" style={{ animationFillMode: "forwards" }}>
           <p
             className="font-display text-xs uppercase mb-5"
-            style={{ color: "#7b5ea7", letterSpacing: "0.45em" }}
+            style={{ color: "rgba(180,240,200,0.6)", letterSpacing: "0.45em" }}
           >
             Фаргат Закиров
           </p>
 
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-16" style={{ background: "linear-gradient(90deg, transparent, rgba(120,60,220,0.5))" }} />
-            <div className="w-1 h-1 rounded-full" style={{ background: "rgba(150,80,255,0.6)" }} />
-            <div className="h-px w-16" style={{ background: "linear-gradient(90deg, rgba(120,60,220,0.5), transparent)" }} />
+            <div className="h-px w-16" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,80,0.4))" }} />
+            <div className="w-1 h-1 rounded-full" style={{ background: "rgba(0,230,100,0.6)" }} />
+            <div className="h-px w-16" style={{ background: "linear-gradient(90deg, rgba(0,200,80,0.4), transparent)" }} />
           </div>
 
           <h1
             className="font-display font-light leading-tight"
-            style={{ color: "#f5f0f8", fontSize: "clamp(3rem, 10vw, 6.5rem)" }}
+            style={{
+              color: "#e8fff2",
+              fontSize: "clamp(3rem, 10vw, 6.5rem)",
+              textShadow: "0 0 40px rgba(0,200,80,0.25), 0 0 80px rgba(0,200,80,0.1)",
+            }}
           >
-            Иллюзия
-            <br />
-            <em
-              className="italic"
-              style={{
-                color: "transparent",
-                WebkitTextStroke: "1px rgba(180,130,255,0.7)",
-              }}
-            >
-              Реальности
-            </em>
+            Иллюзия Реальности
           </h1>
 
           <div className="flex items-center justify-center gap-2 mt-6">
-            <div className="h-px w-20" style={{ background: "linear-gradient(90deg, transparent, rgba(120,60,220,0.6))" }} />
-            <span style={{ color: "rgba(150,80,255,0.5)", fontSize: "10px", letterSpacing: "0.2em" }}>◈</span>
-            <div className="h-px w-20" style={{ background: "linear-gradient(90deg, rgba(120,60,220,0.6), transparent)" }} />
+            <div className="h-px w-20" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,80,0.4))" }} />
+            <span style={{ color: "rgba(0,220,90,0.5)", fontSize: "10px", letterSpacing: "0.2em" }}>◈</span>
+            <div className="h-px w-20" style={{ background: "linear-gradient(90deg, rgba(0,200,80,0.4), transparent)" }} />
           </div>
         </div>
       </header>
@@ -134,7 +128,7 @@ const Index = () => {
         <div className="max-w-xl mx-auto">
           <p
             className="font-display text-xl md:text-2xl font-light italic leading-relaxed"
-            style={{ color: "rgba(200,180,240,0.75)" }}
+            style={{ color: "rgba(200,240,215,0.75)" }}
           >
             «Что если всё, что ты видишь — лишь отражение
             того, во что ты решил поверить?»
@@ -149,9 +143,9 @@ const Index = () => {
       >
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(100,40,200,0.4))" }} />
-            <span style={{ color: "rgba(150,80,255,0.5)", fontSize: "10px", letterSpacing: "0.3em" }}>◈ ◈ ◈</span>
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(100,40,200,0.4), transparent)" }} />
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,80,0.35))" }} />
+            <span style={{ color: "rgba(0,210,90,0.5)", fontSize: "10px", letterSpacing: "0.3em" }}>◈ ◈ ◈</span>
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(0,200,80,0.35), transparent)" }} />
           </div>
 
           <div className="flex flex-wrap gap-2 justify-center mb-8">
@@ -160,9 +154,9 @@ const Index = () => {
                 key={genre}
                 className="px-4 py-1.5 text-xs font-body font-light border rounded-full uppercase"
                 style={{
-                  borderColor: "rgba(100,40,200,0.35)",
-                  color: "rgba(160,100,255,0.85)",
-                  background: "rgba(80,30,160,0.08)",
+                  borderColor: "rgba(0,180,70,0.35)",
+                  color: "rgba(140,240,180,0.85)",
+                  background: "rgba(0,60,30,0.15)",
                   letterSpacing: "0.12em",
                 }}
               >
@@ -174,21 +168,21 @@ const Index = () => {
           <div
             className="rounded-sm p-8 relative overflow-hidden"
             style={{
-              background: "rgba(80,30,160,0.06)",
-              border: "1px solid rgba(100,40,200,0.12)",
+              background: "rgba(0,40,20,0.3)",
+              border: "1px solid rgba(0,180,70,0.12)",
             }}
           >
             <div
               className="absolute top-0 left-0 right-0 h-px"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(120,60,220,0.5), transparent)" }}
+              style={{ background: "linear-gradient(90deg, transparent, rgba(0,200,80,0.4), transparent)" }}
             />
-            <div className="absolute top-2 left-2 w-3 h-3" style={{ borderTop: "1px solid rgba(120,60,220,0.4)", borderLeft: "1px solid rgba(120,60,220,0.4)" }} />
-            <div className="absolute top-2 right-2 w-3 h-3" style={{ borderTop: "1px solid rgba(120,60,220,0.4)", borderRight: "1px solid rgba(120,60,220,0.4)" }} />
-            <div className="absolute bottom-2 left-2 w-3 h-3" style={{ borderBottom: "1px solid rgba(120,60,220,0.4)", borderLeft: "1px solid rgba(120,60,220,0.4)" }} />
-            <div className="absolute bottom-2 right-2 w-3 h-3" style={{ borderBottom: "1px solid rgba(120,60,220,0.4)", borderRight: "1px solid rgba(120,60,220,0.4)" }} />
+            <div className="absolute top-2 left-2 w-3 h-3" style={{ borderTop: "1px solid rgba(0,180,70,0.4)", borderLeft: "1px solid rgba(0,180,70,0.4)" }} />
+            <div className="absolute top-2 right-2 w-3 h-3" style={{ borderTop: "1px solid rgba(0,180,70,0.4)", borderRight: "1px solid rgba(0,180,70,0.4)" }} />
+            <div className="absolute bottom-2 left-2 w-3 h-3" style={{ borderBottom: "1px solid rgba(0,180,70,0.4)", borderLeft: "1px solid rgba(0,180,70,0.4)" }} />
+            <div className="absolute bottom-2 right-2 w-3 h-3" style={{ borderBottom: "1px solid rgba(0,180,70,0.4)", borderRight: "1px solid rgba(0,180,70,0.4)" }} />
             <p
               className="font-body text-base font-light text-center"
-              style={{ color: "rgba(200,190,220,0.7)", lineHeight: "1.95" }}
+              style={{ color: "rgba(190,235,210,0.7)", lineHeight: "1.95" }}
             >
               Герой оказывается на грани двух миров — реального и иллюзорного.
               Каждый выбор меняет правила игры, каждая истина оборачивается ложью.
@@ -204,7 +198,7 @@ const Index = () => {
         <div className="max-w-md mx-auto">
           <p
             className="font-body text-xs uppercase mb-8 font-light"
-            style={{ color: "rgba(120,80,180,0.45)", letterSpacing: "0.3em" }}
+            style={{ color: "rgba(100,200,130,0.4)", letterSpacing: "0.3em" }}
           >
             Сделай выбор
           </p>
@@ -257,8 +251,8 @@ const Index = () => {
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-3">
-          <div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(100,40,200,0.3), transparent)" }} />
-          <p className="font-display italic text-xs" style={{ color: "rgba(80,50,120,0.4)" }}>
+          <div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(0,180,70,0.3), transparent)" }} />
+          <p className="font-display italic text-xs" style={{ color: "rgba(80,160,100,0.4)" }}>
             Фаргат Закиров · {new Date().getFullYear()}
           </p>
         </div>
