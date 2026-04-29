@@ -1,154 +1,169 @@
-const BOOK_COVER = "https://cdn.poehali.dev/projects/a429683c-9af0-409b-bee5-5c281ceb1d25/files/3b4aaa83-37a1-4d9f-9db6-7c2722150fa8.jpg";
+const BOOK_COVER = "https://cdn.poehali.dev/projects/a429683c-9af0-409b-bee5-5c281ceb1d25/files/f01445d0-6517-44da-89f9-eb077a9f6336.jpg";
 
 const Index = () => {
   return (
     <div
-      className="min-h-screen font-body"
+      className="min-h-screen font-body overflow-x-hidden"
       style={{
-        background: "linear-gradient(160deg, #0a0a0f 0%, #0f0e18 40%, #0d0a0a 100%)",
+        background: "linear-gradient(160deg, #050508 0%, #080610 40%, #060408 100%)",
         color: "#f0ece4",
       }}
     >
-      {/* Фоновое свечение */}
+      {/* Мистическое фоновое свечение */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(80,40,160,0.18) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 20% 80%, rgba(0,180,120,0.06) 0%, transparent 50%), radial-gradient(ellipse 40% 30% at 80% 80%, rgba(180,0,60,0.06) 0%, transparent 50%)",
         }}
       />
-      {/* Текстура фона */}
+      {/* Туман снизу */}
+      <div
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 60% at 50% 100%, rgba(40,10,80,0.3) 0%, transparent 60%)",
+        }}
+      />
+      {/* Тонкая сетка */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+            "linear-gradient(rgba(80,40,200,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(80,40,200,0.03) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
         }}
       />
 
       {/* Шапка */}
-      <header className="relative pt-16 pb-8 text-center px-6">
+      <header className="relative pt-16 pb-6 text-center px-6">
         <div className="opacity-0 animate-fade-up" style={{ animationFillMode: "forwards" }}>
           <p
-            className="font-display text-sm uppercase mb-4"
-            style={{ color: "#C9A84C", letterSpacing: "0.35em" }}
+            className="font-display text-xs uppercase mb-5"
+            style={{ color: "#7b5ea7", letterSpacing: "0.45em" }}
           >
-            Новая книга
+            Фаргат Закиров
           </p>
+
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="h-px w-16" style={{ background: "linear-gradient(90deg, transparent, rgba(120,60,220,0.5))" }} />
+            <div className="w-1 h-1 rounded-full" style={{ background: "rgba(150,80,255,0.6)" }} />
+            <div className="h-px w-16" style={{ background: "linear-gradient(90deg, rgba(120,60,220,0.5), transparent)" }} />
+          </div>
+
           <h1
-            className="font-display text-6xl md:text-8xl font-light leading-none"
-            style={{ color: "#f5f0e8" }}
+            className="font-display font-light leading-tight"
+            style={{ color: "#f5f0f8", fontSize: "clamp(3rem, 10vw, 6.5rem)" }}
           >
-            Название
+            Иллюзия
             <br />
-            <em className="font-light italic" style={{ color: "#e8e0d0" }}>
-              Вашей Книги
+            <em
+              className="italic"
+              style={{
+                color: "transparent",
+                WebkitTextStroke: "1px rgba(180,130,255,0.7)",
+              }}
+            >
+              Реальности
             </em>
           </h1>
-          <div
-            className="mx-auto mt-6 h-px w-24"
-            style={{
-              background: "linear-gradient(90deg, transparent, #C9A84C, transparent)",
-            }}
-          />
-          <p
-            className="font-body mt-5 text-base font-light"
-            style={{ color: "#8a7a6a", letterSpacing: "0.3em" }}
-          >
-            Имя Автора
-          </p>
+
+          <div className="flex items-center justify-center gap-2 mt-6">
+            <div className="h-px w-20" style={{ background: "linear-gradient(90deg, transparent, rgba(120,60,220,0.6))" }} />
+            <span style={{ color: "rgba(150,80,255,0.5)", fontSize: "10px", letterSpacing: "0.2em" }}>◈</span>
+            <div className="h-px w-20" style={{ background: "linear-gradient(90deg, rgba(120,60,220,0.6), transparent)" }} />
+          </div>
         </div>
       </header>
 
-      {/* Обложка книги */}
-      <section className="relative flex justify-center px-6 py-10">
+      {/* Обложка книги — крупная */}
+      <section className="relative flex justify-center px-6 py-8">
         <div className="opacity-0 animate-scale-in" style={{ animationFillMode: "forwards" }}>
           <div className="relative group">
             <div
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4/5 h-8 rounded-full blur-2xl"
-              style={{ background: "rgba(201,168,76,0.15)" }}
+              className="absolute -bottom-8 left-1/2 -translate-x-1/2 blur-3xl rounded-full"
+              style={{
+                width: "80%",
+                height: "60px",
+                background: "radial-gradient(ellipse, rgba(100,40,200,0.4) 0%, rgba(180,0,60,0.15) 50%, transparent 70%)",
+              }}
             />
             <div
-              className="relative overflow-hidden rounded-sm transition-transform duration-700 group-hover:scale-[1.02]"
+              className="absolute -inset-4 blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse, rgba(80,30,160,0.5) 0%, transparent 70%)" }}
+            />
+            <div
+              className="relative overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]"
               style={{
-                width: "260px",
-                boxShadow: "-8px 8px 40px rgba(0,0,0,0.8), 2px 2px 0 rgba(255,255,255,0.05) inset",
+                width: "clamp(280px, 58vw, 400px)",
+                borderRadius: "2px",
+                boxShadow:
+                  "-12px 16px 60px rgba(0,0,0,0.9), 0 0 40px rgba(80,30,160,0.25), 2px 0 0 rgba(255,255,255,0.04) inset",
               }}
             >
               <img
                 src={BOOK_COVER}
-                alt="Обложка книги"
+                alt="Обложка книги «Иллюзия реальности»"
                 className="w-full block"
                 style={{ aspectRatio: "3/4", objectFit: "cover" }}
               />
               <div
-                className="absolute left-0 top-0 bottom-0 w-2"
-                style={{ background: "linear-gradient(90deg, rgba(0,0,0,0.5), transparent)" }}
+                className="absolute left-0 top-0 bottom-0 w-3"
+                style={{ background: "linear-gradient(90deg, rgba(0,0,0,0.7), transparent)" }}
               />
               <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                 style={{
-                  background: "linear-gradient(135deg, rgba(201,168,76,0.12) 0%, transparent 50%)",
+                  background: "linear-gradient(135deg, rgba(100,50,200,0.15) 0%, transparent 40%, rgba(180,0,60,0.08) 100%)",
                 }}
+              />
+              <div
+                className="absolute top-0 left-0 right-0 h-px"
+                style={{ background: "linear-gradient(90deg, transparent, rgba(150,80,255,0.3), transparent)" }}
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Короткий текстовый блок — цитата */}
+      {/* Цитата */}
       <section
         className="relative px-6 py-10 text-center opacity-0 animate-fade-up-2"
         style={{ animationFillMode: "forwards" }}
       >
         <div className="max-w-xl mx-auto">
-          <div
-            className="font-display text-4xl mb-4 leading-none"
-            style={{ color: "#C9A84C" }}
-          >
-            "
-          </div>
           <p
             className="font-display text-xl md:text-2xl font-light italic leading-relaxed"
-            style={{ color: "#d4cdc4" }}
+            style={{ color: "rgba(200,180,240,0.75)" }}
           >
-            Краткая, цепляющая фраза из книги или слоган,
-            который передаёт её суть и атмосферу
+            «Что если всё, что ты видишь — лишь отражение
+            того, во что ты решил поверить?»
           </p>
-          <div className="font-display text-4xl mt-2 leading-none" style={{ color: "#C9A84C" }}>
-            "
-          </div>
         </div>
       </section>
 
       {/* Аннотация и жанры */}
       <section
-        className="relative px-6 py-10 opacity-0 animate-fade-up-3"
+        className="relative px-6 py-8 opacity-0 animate-fade-up-3"
         style={{ animationFillMode: "forwards" }}
       >
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
-            <div
-              className="flex-1 h-px"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.3))" }}
-            />
-            <div className="w-1.5 h-1.5 rotate-45" style={{ background: "#C9A84C" }} />
-            <div
-              className="flex-1 h-px"
-              style={{ background: "linear-gradient(90deg, rgba(201,168,76,0.3), transparent)" }}
-            />
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(100,40,200,0.4))" }} />
+            <span style={{ color: "rgba(150,80,255,0.5)", fontSize: "10px", letterSpacing: "0.3em" }}>◈ ◈ ◈</span>
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(100,40,200,0.4), transparent)" }} />
           </div>
 
           <div className="flex flex-wrap gap-2 justify-center mb-8">
-            {["Роман", "Фантастика", "Приключения", "Психологическая драма"].map((genre) => (
+            {["Философский роман", "Мистика", "Психологический триллер", "Фантастика"].map((genre) => (
               <span
                 key={genre}
                 className="px-4 py-1.5 text-xs font-body font-light border rounded-full uppercase"
                 style={{
-                  borderColor: "rgba(201,168,76,0.3)",
-                  color: "#C9A84C",
-                  background: "rgba(201,168,76,0.05)",
-                  letterSpacing: "0.15em",
+                  borderColor: "rgba(100,40,200,0.35)",
+                  color: "rgba(160,100,255,0.85)",
+                  background: "rgba(80,30,160,0.08)",
+                  letterSpacing: "0.12em",
                 }}
               >
                 {genre}
@@ -159,80 +174,92 @@ const Index = () => {
           <div
             className="rounded-sm p-8 relative overflow-hidden"
             style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.07)",
+              background: "rgba(80,30,160,0.06)",
+              border: "1px solid rgba(100,40,200,0.12)",
             }}
           >
             <div
               className="absolute top-0 left-0 right-0 h-px"
-              style={{
-                background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)",
-              }}
+              style={{ background: "linear-gradient(90deg, transparent, rgba(120,60,220,0.5), transparent)" }}
             />
+            <div className="absolute top-2 left-2 w-3 h-3" style={{ borderTop: "1px solid rgba(120,60,220,0.4)", borderLeft: "1px solid rgba(120,60,220,0.4)" }} />
+            <div className="absolute top-2 right-2 w-3 h-3" style={{ borderTop: "1px solid rgba(120,60,220,0.4)", borderRight: "1px solid rgba(120,60,220,0.4)" }} />
+            <div className="absolute bottom-2 left-2 w-3 h-3" style={{ borderBottom: "1px solid rgba(120,60,220,0.4)", borderLeft: "1px solid rgba(120,60,220,0.4)" }} />
+            <div className="absolute bottom-2 right-2 w-3 h-3" style={{ borderBottom: "1px solid rgba(120,60,220,0.4)", borderRight: "1px solid rgba(120,60,220,0.4)" }} />
             <p
               className="font-body text-base font-light text-center"
-              style={{ color: "#b8b0a4", lineHeight: "1.9" }}
+              style={{ color: "rgba(200,190,220,0.7)", lineHeight: "1.95" }}
             >
-              Здесь размещается аннотация к книге — краткое описание сюжета, которое
-              заинтригует читателя и побудит его узнать больше. Расскажите о главном герое,
-              конфликте или мире, который вы создали. Несколько предложений, которые
-              захватят с первых слов.
+              Герой оказывается на грани двух миров — реального и иллюзорного.
+              Каждый выбор меняет правила игры, каждая истина оборачивается ложью.
+              Роман, который заставит усомниться в природе собственного восприятия
+              и задать вопрос: а что, если граница между сном и явью — лишь договорённость?
             </p>
           </div>
         </div>
       </section>
 
-      {/* Кнопки соцсетей */}
+      {/* Кнопки — таблетки из Матрицы */}
       <section className="relative px-6 pt-10 pb-20 text-center">
-        <div className="max-w-sm mx-auto">
+        <div className="max-w-md mx-auto">
           <p
             className="font-body text-xs uppercase mb-8 font-light"
-            style={{ color: "#5a5248", letterSpacing: "0.25em" }}
+            style={{ color: "rgba(120,80,180,0.45)", letterSpacing: "0.3em" }}
           >
-            Читать и обсудить
+            Сделай выбор
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            {/* Синяя таблетка */}
             <a
               href="#"
-              className="flex items-center justify-center gap-3 px-8 py-4 rounded-sm font-body text-sm font-light uppercase transition-all duration-300"
+              className="relative group flex items-center justify-center px-10 py-4 font-body text-sm font-light tracking-wider transition-all duration-300"
               style={{
-                background: "linear-gradient(135deg, #C9A84C, #8B6914)",
-                color: "#0a0a0f",
-                letterSpacing: "0.15em",
-                boxShadow: "0 4px 24px rgba(201,168,76,0.25)",
+                background: "linear-gradient(180deg, #2255e0 0%, #0d2fa0 60%, #0a1e70 100%)",
+                color: "#c8d8ff",
+                letterSpacing: "0.12em",
+                borderRadius: "100px",
+                boxShadow:
+                  "0 0 18px rgba(30,80,220,0.5), 0 0 50px rgba(30,80,220,0.18), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,30,0.4)",
+                border: "1px solid rgba(80,120,255,0.4)",
+                minWidth: "185px",
               }}
             >
-              <span>✈</span>
-              Telegram
+              <div
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ boxShadow: "0 0 35px rgba(30,80,220,0.8), 0 0 80px rgba(30,80,220,0.35)" }}
+              />
+              <span className="relative z-10">Читать книгу</span>
             </a>
+
+            {/* Красная таблетка */}
             <a
               href="#"
-              className="flex items-center justify-center gap-3 px-8 py-4 rounded-sm font-body text-sm font-light uppercase transition-all duration-300"
+              className="relative group flex items-center justify-center px-10 py-4 font-body text-sm font-light tracking-wider transition-all duration-300"
               style={{
-                background: "transparent",
-                color: "#d4cdc4",
-                letterSpacing: "0.15em",
-                border: "1px solid rgba(255,255,255,0.15)",
+                background: "linear-gradient(180deg, #cc1830 0%, #8b0a1e 60%, #5a0010 100%)",
+                color: "#ffc8ce",
+                letterSpacing: "0.12em",
+                borderRadius: "100px",
+                boxShadow:
+                  "0 0 18px rgba(200,20,40,0.5), 0 0 50px rgba(200,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(30,0,0,0.4)",
+                border: "1px solid rgba(255,80,100,0.4)",
+                minWidth: "185px",
               }}
             >
-              <span>🔵</span>
-              ВКонтакте
+              <div
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ boxShadow: "0 0 35px rgba(200,20,40,0.8), 0 0 80px rgba(200,20,40,0.35)" }}
+              />
+              <span className="relative z-10">Узнать больше</span>
             </a>
           </div>
         </div>
 
-        <div className="mt-16">
-          <div
-            className="mx-auto h-px w-16"
-            style={{
-              background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)",
-            }}
-          />
-          <p
-            className="font-display italic text-sm mt-4"
-            style={{ color: "#3a342e" }}
-          >
-            {new Date().getFullYear()}
+        <div className="mt-16 flex flex-col items-center gap-3">
+          <div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, rgba(100,40,200,0.3), transparent)" }} />
+          <p className="font-display italic text-xs" style={{ color: "rgba(80,50,120,0.4)" }}>
+            Фаргат Закиров · {new Date().getFullYear()}
           </p>
         </div>
       </section>
